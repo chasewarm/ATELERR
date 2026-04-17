@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #E1D4C2;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gibsie.atelier.controller.ProfileController">
+
+    <top>
+        <VBox style="-fx-background-color: #291C0E;">
+            <padding>
+                <Insets bottom="15" left="20" right="20" top="15" />
+            </padding>
+
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Button fx:id="backButton" prefHeight="32.0" prefWidth="63.0" style="-fx-background-color: #6E473B; -fx-text-fill: #E1D4C2;" text="← Назад" />
+                <Label text="Мой профиль" textFill="#E1D4C2">
+                    <font>
+                        <Font name="System Bold" size="24" />
+                    </font>
+                </Label>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane style="-fx-background-color: #E1D4C2;" tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Личная информация">
+                <VBox spacing="20" style="-fx-background-color: #E1D4C2; -fx-padding: 20;">
+                    <GridPane hgap="10" maxWidth="600" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="30" />
+                            <ColumnConstraints percentWidth="70" />
+                        </columnConstraints>
+
+                        <Label text="Имя:" textFill="#291C0E" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="firstNameField" prefHeight="33.0" prefWidth="413.0" style="-fx-background-color: #BEB5A9;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <Label text="Фамилия:" textFill="#291C0E" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextField fx:id="lastNameField" prefHeight="33.0" prefWidth="413.0" style="-fx-background-color: #BEB5A9;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Label text="Email:" textFill="#291C0E" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <TextField fx:id="emailField" prefHeight="33.0" prefWidth="413.0" style="-fx-background-color: #BEB5A9;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                        <Label text="Телефон:" textFill="#291C0E" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <TextField fx:id="phoneField" prefHeight="33.0" prefWidth="413.0" style="-fx-background-color: #BEB5A9;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                        <Label text="Тип:" textFill="#291C0E" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <Label fx:id="userTypeLabel" textFill="#6E473B" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <rowConstraints>
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                  </rowConstraints>
+                    </GridPane>
+
+                    <HBox spacing="10">
+                        <Button fx:id="saveChangesButton" prefHeight="30.0" prefWidth="138.0"
+                                style="-fx-background-color: #6E473B; -fx-text-fill: #E1D4C2;"
+                                text="Сохранить изменения" />
+                        <!-- ДОБАВЛЕНО: кнопка вызова диалога смены пароля -->
+                        <Button fx:id="changePasswordButton"
+                                prefHeight="30.0" prefWidth="106.0"
+                                style="-fx-background-color: #A78D78; -fx-text-fill: #291C0E;"
+                                text="Сменить пароль" />
+                    </HBox>
+
+                    <Label fx:id="profileStatusLabel" textFill="#6E473B" />
+                </VBox>
+            </Tab>
+
+            <Tab text="Мои заказы">
+                <VBox spacing="10" style="-fx-background-color: #E1D4C2; -fx-padding: 20;">
+                    <TableView fx:id="ordersTable" style="-fx-background-color: #BEB5A9;">
+                        <columns>
+                            <TableColumn fx:id="orderIdColumn" prefWidth="80" text="№ заказа" />
+                            <!-- ДОБАВЛЕНО: новая колонка «Модель» -->
+                            <TableColumn fx:id="orderModelColumn" prefWidth="150" text="Модель" />
+                            <TableColumn fx:id="orderTypeColumn" prefWidth="120" text="Тип" />
+                            <TableColumn fx:id="orderStatusColumn" prefWidth="100" text="Статус" />
+                            <TableColumn fx:id="orderDateColumn" prefWidth="100" text="Дата" />
+                            <TableColumn fx:id="orderDeadlineColumn" prefWidth="100" text="Срок" />
+                            <TableColumn fx:id="orderActionColumn" prefWidth="100" text="Действие" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+            <Tab text="Записи на примерку">
+                <VBox spacing="10" style="-fx-background-color: #E1D4C2; -fx-padding: 20;">
+                    <TableView fx:id="fittingsTable" style="-fx-background-color: #BEB5A9;">
+                        <columns>
+                            <TableColumn fx:id="fittingDateColumn" prefWidth="100" text="Дата" />
+                            <TableColumn fx:id="fittingTimeColumn" prefWidth="80" text="Время" />
+                            <TableColumn fx:id="fittingTypeColumn" prefWidth="120" text="Тип" />
+                            <TableColumn fx:id="fittingNotesColumn" prefWidth="200" text="Пожелания" />
+                            <TableColumn fx:id="fittingStatusColumn" prefWidth="100" text="Статус" />
+                            <TableColumn fx:id="fittingActionColumn" prefWidth="100" text="Действие" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>
+
