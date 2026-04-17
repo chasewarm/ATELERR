@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #E1D4C2;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gibsie.atelier.controller.FittingController">
+
+    <top>
+        <VBox style="-fx-background-color: #291C0E;">
+            <padding>
+                <Insets bottom="15" left="20" right="20" top="15" />
+            </padding>
+
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Button fx:id="backButton" prefHeight="32.0" prefWidth="63.0" style="-fx-background-color: #6E473B; -fx-text-fill: #E1D4C2;" text="← Назад" />
+                <Label text="Запись на примерку" textFill="#E1D4C2">
+                    <font>
+                        <Font name="System Bold" size="24" />
+                    </font>
+                </Label>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background: #E1D4C2; -fx-background-color: #E1D4C2;">
+            <VBox maxWidth="600" spacing="20">
+                <padding>
+                    <Insets bottom="20" left="20" right="20" top="20" />
+                </padding>
+
+                <Label style="-fx-font-weight: bold; -fx-font-size: 18;" text="Выберите удобное время для визита" textFill="#291C0E" />
+
+                <DatePicker fx:id="datePicker" maxWidth="Infinity" promptText="Дата" style="-fx-background-color: #BEB5A9;" />
+
+                <ComboBox fx:id="timeComboBox" maxWidth="Infinity" promptText="Время" style="-fx-background-color: #BEB5A9;">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="10:00" />
+                            <String fx:value="11:00" />
+                            <String fx:value="12:00" />
+                            <String fx:value="13:00" />
+                            <String fx:value="14:00" />
+                            <String fx:value="15:00" />
+                            <String fx:value="16:00" />
+                            <String fx:value="17:00" />
+                            <String fx:value="18:00" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Тип консультации" textFill="#291C0E" />
+
+                <HBox alignment="CENTER_LEFT" spacing="20">
+                    <RadioButton fx:id="measurementsRadio" text="Снятие мерок" textFill="#291C0E">
+                        <toggleGroup>
+                            <ToggleGroup fx:id="consultationTypeGroup" />
+                        </toggleGroup>
+                    </RadioButton>
+                    <RadioButton fx:id="fittingRadio" text="Примерка" textFill="#291C0E" toggleGroup="$consultationTypeGroup" />
+                </HBox>
+
+                <!-- ДОБАВЛЕНО: блок выбора товара для примерки -->
+                <VBox spacing="10">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Выберите товар для примерки" textFill="#291C0E" />
+                    <ComboBox fx:id="productToTryComboBox"
+                              maxWidth="Infinity"
+                              promptText="Выберите товар" style="-fx-background-color: #BEB5A9;" />
+                    <Label fx:id="productStatusLabel"
+                           style="-fx-text-fill: #6E473B; -fx-font-size: 11;"
+                           text="* Отображаются только заказы со статусом 'Готов'" />
+                </VBox>
+
+                <TextArea fx:id="notesArea" prefRowCount="4" promptText="Особые пожелания (дополнительные услуги, конкретные изделия для примерки и т.д.)" style="-fx-background-color: #BEB5A9;" wrapText="true" />
+
+                <Button fx:id="submitButton" maxWidth="Infinity" style="-fx-background-color: #6E473B; -fx-text-fill: #E1D4C2; -fx-font-weight: bold; -fx-font-size: 16; -fx-padding: 15;" text="Записаться" />
+
+                <Label fx:id="statusLabel" textFill="#6E473B" wrapText="true" />
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
