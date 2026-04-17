@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #E1D4C2;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gibsie.atelier.controller.AdminPanelController">
+
+    <top>
+        <VBox style="-fx-background-color: #291C0E;">
+            <padding>
+                <Insets bottom="15" left="20" right="20" top="15" />
+            </padding>
+
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Button fx:id="backToMenuButton" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #6E473B; -fx-text-fill: #E1D4C2;" text="← В главное меню" />
+                <Label text="Панель администратора" textFill="#E1D4C2">
+                    <font>
+                        <Font name="System Bold" size="24" />
+                    </font>
+                </Label>
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="adminNameLabel" textFill="#BEB5A9" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane fx:id="adminTabPane" style="-fx-background-color: #E1D4C2;" tabClosingPolicy="UNAVAILABLE">
+
+            <Tab fx:id="ordersTab" text="Заказы">
+                <VBox spacing="10" style="-fx-background-color: #E1D4C2; -fx-padding: 20;">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 18;" text="Управление заказами" textFill="#291C0E" />
+                    <TableView fx:id="ordersTable" prefHeight="478.0" prefWidth="960.0" style="-fx-background-color: #BEB5A9;">
+                        <columns>
+                            <TableColumn fx:id="orderIdColumn" prefWidth="60" text="ID" />
+                            <TableColumn fx:id="orderUserColumn" prefWidth="200" text="Пользователь (телефон)" />
+                            <TableColumn fx:id="orderTypeColumn" prefWidth="100" text="Тип" />
+                            <TableColumn fx:id="orderStatusColumn" prefWidth="80" text="Статус" />
+                            <TableColumn fx:id="orderDateColumn" prefWidth="120" text="Дата создания" />
+                            <TableColumn fx:id="orderDeadlineColumn" prefWidth="100" text="Срок" />
+                            <TableColumn fx:id="orderSizeColumn" prefWidth="80" text="Размер" />
+                            <TableColumn fx:id="orderFabricColumn" prefWidth="100" text="Ткань" />
+                            <TableColumn fx:id="orderColorColumn" prefWidth="80" text="Цвет" />
+                            <TableColumn fx:id="orderQuantityColumn" prefWidth="60" text="Кол-во" />
+                            <TableColumn fx:id="orderActionsColumn" prefWidth="100" text="Действия" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+            <Tab fx:id="fittingsTab" text="Записи на примерку">
+                <VBox spacing="10" style="-fx-background-color: #E1D4C2; -fx-padding: 20;">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 18;" text="Управление записями на примерку" textFill="#291C0E" />
+                    <TableView fx:id="fittingsTable" prefHeight="478.0" prefWidth="960.0" style="-fx-background-color: #BEB5A9;">
+                        <columns>
+                            <TableColumn fx:id="fittingIdColumn" prefWidth="60" text="ID" />
+                            <TableColumn fx:id="fittingUserColumn" prefWidth="200" text="Пользователь (телефон)" />
+                            <TableColumn fx:id="fittingDateColumn" prefWidth="100" text="Дата" />
+                            <TableColumn fx:id="fittingTimeColumn" prefWidth="80" text="Время" />
+                            <TableColumn fx:id="fittingTypeColumn" prefWidth="100" text="Тип" />
+                            <TableColumn fx:id="fittingNotesColumn" prefWidth="200" text="Заметки" />
+                            <TableColumn fx:id="fittingStatusColumn" prefWidth="100" text="Статус" />
+                            <TableColumn fx:id="fittingActionsColumn" prefWidth="100" text="Действия" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+
+            <Tab fx:id="modelsTab" text="Модели">
+                <VBox spacing="10" style="-fx-background-color: #E1D4C2; -fx-padding: 20;">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 18;" text="Управление моделями" textFill="#291C0E" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="addModelButton" style="-fx-background-color: #6E473B; -fx-text-fill: #E1D4C2;" text="+ Добавить модель" />
+                    </HBox>
+                    <TableView fx:id="modelsTable" prefHeight="479.0" prefWidth="960.0" style="-fx-background-color: #BEB5A9;">
+                        <columns>
+                            <TableColumn fx:id="modelIdColumn" prefWidth="60" text="ID" />
+                            <TableColumn fx:id="modelNameColumn" prefWidth="150" text="Название" />
+                            <TableColumn fx:id="modelTypeColumn" prefWidth="100" text="Тип" />
+                            <TableColumn fx:id="modelCollectionColumn" prefWidth="120" text="Коллекция" />
+                            <TableColumn fx:id="modelPriceColumn" prefWidth="100" text="Цена" />
+                            <TableColumn fx:id="modelStockColumn" prefWidth="80" text="В наличии" />
+                            <TableColumn fx:id="modelActionsColumn" prefWidth="100" text="Действия" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+            
+            <Tab fx:id="fabricsTab" text="Ткани">
+                <VBox spacing="10" style="-fx-background-color: #E1D4C2; -fx-padding: 20;">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 18;" text="Управление тканями" textFill="#291C0E" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="addFabricButton" style="-fx-background-color: #6E473B; -fx-text-fill: #E1D4C2;" text="+ Добавить ткань" />
+                    </HBox>
+                    <TableView fx:id="fabricsTable" prefHeight="478.0" prefWidth="960.0" style="-fx-background-color: #BEB5A9;">
+                        <columns>
+                            <TableColumn fx:id="fabricIdColumn" prefWidth="60" text="ID" />
+                            <TableColumn fx:id="fabricNameColumn" prefWidth="120" text="Название" />
+                            <TableColumn fx:id="fabricCompositionColumn" prefWidth="150" text="Состав" />
+                            <TableColumn fx:id="fabricColorColumn" prefWidth="100" text="Цвет" />
+                            <TableColumn fx:id="fabricPriceColumn" prefWidth="100" text="Цена/м" />
+                            <TableColumn fx:id="fabricStockColumn" prefWidth="80" text="В наличии" />
+                            <TableColumn fx:id="fabricActionsColumn" prefWidth="100" text="Действия" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>
